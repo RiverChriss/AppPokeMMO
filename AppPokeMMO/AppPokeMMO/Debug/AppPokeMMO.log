@@ -1,0 +1,8 @@
+﻿  Console.cpp
+D:\Cristopher\projet\Pokemon\AppPokeMMO\AppPokeMMO\Console.h(12,7): error C2259: 'DrawingObj' : impossible d'instancier une classe abstraite
+D:\Cristopher\projet\Pokemon\AppPokeMMO\AppPokeMMO\DrawingObj.h(7): message : voir la déclaration de 'DrawingObj'
+D:\Cristopher\projet\Pokemon\AppPokeMMO\AppPokeMMO\Console.h(12,7): message : à cause des membres suivants :
+D:\Cristopher\projet\Pokemon\AppPokeMMO\AppPokeMMO\Console.h(12,7): message : 'void DrawingObj::draw(void)' : est abstrait
+D:\Cristopher\projet\Pokemon\AppPokeMMO\AppPokeMMO\DrawingObj.h(11): message : voir la déclaration de 'DrawingObj::draw'
+D:\Cristopher\projet\Pokemon\AppPokeMMO\AppPokeMMO\Console.h(14,23): warning C4018: '<' : incompatibilité signed/unsigned
+D:\Cristopher\projet\Pokemon\AppPokeMMO\AppPokeMMO\Console.h(18,26): warning C4018: '<' : incompatibilité signed/unsigned
