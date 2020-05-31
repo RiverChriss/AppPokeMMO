@@ -41,5 +41,9 @@ void TextBox::draw()
         string white2(nbCharVal - ligne.second.length(), ' ');
         dessin.push_back("|" + ligne.first + white1 + "|" + white2 + ligne.second + "|");
     }
+    for (size_t i = 0; i < nbPuce - puce.size(); i++)
+    {
+        dessin.push_back("|" + string(nbCharPuce, ' ') + "|" + string(nbCharVal, ' ') + "|");
+    }
     dessin.push_back(string(largeurBox, '_'));
 }
