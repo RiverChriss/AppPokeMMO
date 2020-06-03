@@ -1,25 +1,27 @@
 #include "TextBox.h"
 
-void TextBox::setTitre(const string& texte)
+using namespace std;
+
+void TextBox::setTitle(const string& text)
 {
-	titre = texte;
+	title = text;
 }
 
-void TextBox::addPuce(string textGauche, string textDroite)
+void TextBox::addPuce(string textLeft, string textRight)
 {
     if (puce.size() >= nbPuce)
     {
         return;
     }
-    if (textGauche.length() > nbCharPuce)
+    if (textLeft.length() > nbCharPuce)
     {
-        textGauche = textGauche.substr(0, nbCharPuce);
+        textLeft = textLeft.substr(0, nbCharPuce);
     }
-    if (textDroite.length() > nbCharVal)
+    if (textRight.length() > nbCharVal)
     {
-        textDroite = textDroite.substr(0, nbCharVal);
+        textRight = textRight.substr(0, nbCharVal);
     }
-    puce.push_back(pair<string, string>(textGauche, textDroite));
+    puce.push_back(pair<string, string>(textLeft, textRight));
 }
 
 pair<string, string>& TextBox::getPuce(int index)
@@ -29,21 +31,23 @@ pair<string, string>& TextBox::getPuce(int index)
 
 void TextBox::draw()
 {
-    int largeurBox = nbCharPuce + nbCharVal + 3;
+    drawing.clear();
 
-    dessin.push_back(string(largeurBox, '_'));
-    dessin.push_back("|" + titre + string(largeurBox - titre.length() - 2, ' ') + "|");
-    dessin.push_back(string(largeurBox, '-'));
+    int widthBox = nbCharPuce + nbCharVal + 3;
 
-    for (auto ligne : puce)
+    drawing.push_back(string(widthBox, '_'));
+    drawing.push_back("|" + title + string(widthBox - title.length() - 2, ' ') + "|");
+    drawing.push_back(string(widthBox, '-'));
+
+    for (auto line : puce)
     {
-        string white1(nbCharPuce - ligne.first.length(), ' ');
-        string white2(nbCharVal - ligne.second.length(), ' ');
-        dessin.push_back("|" + ligne.first + white1 + "|" + white2 + ligne.second + "|");
+        string white1(nbCharPuce - line.first.length(), ' ');
+        string white2(nbCharVal - line.second.length(), ' ');
+        drawing.push_back("|" + line.first + white1 + "|" + white2 + line.second + "|");
     }
     for (size_t i = 0; i < nbPuce - puce.size(); i++)
     {
-        dessin.push_back("|" + string(nbCharPuce, ' ') + "|" + string(nbCharVal, ' ') + "|");
+        drawing.push_back("|" + string(nbCharPuce, ' ') + "|" + string(nbCharVal, ' ') + "|");
     }
-    dessin.push_back(string(largeurBox, '_'));
+    drawing.push_back(string(widthBox, '_'));
 }

@@ -8,15 +8,15 @@ using namespace std;
 class TextBox : public Box
 {
 private:
-    string titre;
+    string title;
     vector<pair<string, string>> puce;
 
 protected:
     virtual void draw();
 
 public:
-    void setTitre(const string& texte);
-    void addPuce(string textGauche, string textDroite);
+    void setTitle(const string& text);
+    void addPuce(string textLeft, string textRight);
     pair<string, string>& getPuce(int index);
 };
 

@@ -1,15 +1,15 @@
 #include <iostream>
-#include <string>
 #include "TextBox.h"
-#include "VideBox.h"
-#include "InterfaceConsole.h"
+#include "NullBox.h"
+#include "OutPutConsole.h"
+#include "VerticalSpace.h"
 
 using namespace std;
 
 int main()
 {
 	TextBox test1;
-	test1.setTitre("Pokemon");
+	test1.setTitle("Pokemon");
 	test1.addPuce("Att", "(28-30)");
 	test1.addPuce("Defence", "(31)");
 	test1.addPuce("Spec Defence", "(25-31)");
@@ -17,12 +17,15 @@ int main()
 	test1.print();
 
 
-	VideBox test2;
+	NullBox test2;
 	test2.print();
+
+	VerticalSpace test3;
+	test3.print();
 
 	cout << endl << endl;
 
-	InterfaceConsole testConsole;
+	OutPutConsole testConsole;
 	testConsole.addDrawingObj(1, 0, &test1);
 	testConsole.addDrawingObj(0, 0, &test2);
 	testConsole.addDrawingObj(1, 1, &test2);

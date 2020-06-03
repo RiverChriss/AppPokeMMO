@@ -27,13 +27,13 @@
     <ClCompile Include="TextBox.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="EspaceVertical.cpp">
+    <ClCompile Include="NullBox.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="VideBox.cpp">
+    <ClCompile Include="VerticalSpace.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="InterfaceConsole.cpp">
+    <ClCompile Include="OutPutConsole.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +47,13 @@
     <ClInclude Include="TextBox.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="EspaceVertical.h">
+    <ClInclude Include="NullBox.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="VideBox.h">
+    <ClInclude Include="VerticalSpace.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceConsole.h">
+    <ClInclude Include="OutPutConsole.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

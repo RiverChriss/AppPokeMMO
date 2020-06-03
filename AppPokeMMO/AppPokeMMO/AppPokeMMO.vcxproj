@@ -139,20 +139,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp" />
-    <ClCompile Include="InterfaceConsole.cpp" />
+    <ClCompile Include="OutPutConsole.cpp" />
     <ClCompile Include="DrawingObj.cpp" />
-    <ClCompile Include="EspaceVertical.cpp" />
+    <ClCompile Include="VerticalSpace.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TextBox.cpp" />
-    <ClCompile Include="VideBox.cpp" />
+    <ClCompile Include="NullBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />
-    <ClInclude Include="InterfaceConsole.h" />
+    <ClInclude Include="OutPutConsole.h" />
     <ClInclude Include="DrawingObj.h" />
-    <ClInclude Include="EspaceVertical.h" />
+    <ClInclude Include="VerticalSpace.h" />
     <ClInclude Include="TextBox.h" />
-    <ClInclude Include="VideBox.h" />
+    <ClInclude Include="NullBox.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

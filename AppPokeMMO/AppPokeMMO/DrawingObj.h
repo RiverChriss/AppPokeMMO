@@ -7,12 +7,12 @@ using namespace std;
 class DrawingObj
 {
 protected:
-	vector<string> dessin;
-	virtual void draw() = 0;
+	vector<string> drawing;
 
 public:
 	void print();
-	const vector<string>& getDessin() const;
+	const vector<string>& getDrawing() const;
+	virtual void draw() = 0;
 };
 
 

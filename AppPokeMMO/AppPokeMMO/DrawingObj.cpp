@@ -7,13 +7,13 @@ void DrawingObj::print()
 {
 	draw();
 
-	for (string ligne : dessin)
+	for (string line : drawing)
 	{
-		cout << ligne << endl;
+		cout << line << endl;
 	}
 }
 
-const vector<string>& DrawingObj::getDessin() const
-{
-	return dessin;
+const vector<string>& DrawingObj::getDrawing() const
+{	
+	return drawing;
 }

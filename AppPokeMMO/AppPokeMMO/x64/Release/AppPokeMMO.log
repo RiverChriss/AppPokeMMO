@@ -1,0 +1,12 @@
+﻿  Box.cpp
+  OutPutConsole.cpp
+  DrawingObj.cpp
+  VerticalSpace.cpp
+  main.cpp
+  TextBox.cpp
+  NullBox.cpp
+  Génération de code en cours
+  Previous IPDB not found, fall back to full compilation.
+  All 354 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  AppPokeMMO.vcxproj -> D:\Cristopher\GitHub\AppPokeMMO\AppPokeMMO\x64\Release\AppPokeMMO.exe
