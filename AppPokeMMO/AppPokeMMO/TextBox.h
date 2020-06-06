@@ -9,14 +9,12 @@ class TextBox : public Box
 {
 private:
     string title;
-    vector<pair<string, string>> puce;
-
-protected:
-    virtual void draw();
+    vector<pair<string, string>> bullet;  
 
 public:
     void setTitle(const string& text);
-    void addPuce(string textLeft, string textRight);
-    pair<string, string>& getPuce(int index);
+    void addBullet(const string& textLeft, const string& textRight);
+    pair<string, string>& getBullet(size_t index);
+    virtual void draw() override;
 };
 

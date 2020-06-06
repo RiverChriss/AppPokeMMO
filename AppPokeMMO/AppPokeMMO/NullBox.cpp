@@ -3,9 +3,10 @@
 using namespace std;
 
 void NullBox::draw()
-{
-	int widthBox = nbCharPuce + nbCharVal + 3;
-	int heightBox = nbPuce + 4;
+{						
+	const int nbTitle = 1;
+	int widthBox = nbCharBullet + nbCharVal + nbBordes;
+	int heightBox = nbBullet + nbTitle + nbBordes;
 
 	drawing.clear();
 

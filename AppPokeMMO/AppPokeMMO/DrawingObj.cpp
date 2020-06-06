@@ -7,7 +7,7 @@ void DrawingObj::print()
 {
 	draw();
 
-	for (string line : drawing)
+	for (const string& line : drawing)
 	{
 		cout << line << endl;
 	}

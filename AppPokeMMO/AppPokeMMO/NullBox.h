@@ -4,8 +4,8 @@
 
 class NullBox : public Box
 {
-protected:
-	virtual void draw();
+public:
+	virtual void draw() override;
 
 
 };

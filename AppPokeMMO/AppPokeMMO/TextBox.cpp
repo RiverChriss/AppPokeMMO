@@ -7,47 +7,40 @@ void TextBox::setTitle(const string& text)
 	title = text;
 }
 
-void TextBox::addPuce(string textLeft, string textRight)
+void TextBox::addBullet(const string& textLeft, const string& textRight)
 {
-    if (puce.size() >= nbPuce)
+    if (bullet.size() >= nbBullet)
     {
         return;
     }
-    if (textLeft.length() > nbCharPuce)
-    {
-        textLeft = textLeft.substr(0, nbCharPuce);
-    }
-    if (textRight.length() > nbCharVal)
-    {
-        textRight = textRight.substr(0, nbCharVal);
-    }
-    puce.push_back(pair<string, string>(textLeft, textRight));
+ 
+    bullet.push_back(pair<string, string>(textLeft.substr(0, nbCharBullet), textRight.substr(0, nbCharVal)));
 }
 
-pair<string, string>& TextBox::getPuce(int index)
+pair<string, string>& TextBox::getBullet(size_t index)
 {
-    return puce[index];
+    return bullet[index];
 }
 
 void TextBox::draw()
 {
     drawing.clear();
 
-    int widthBox = nbCharPuce + nbCharVal + 3;
+    int widthBox = nbCharBullet + nbCharVal + nbBordes;
 
     drawing.push_back(string(widthBox, '_'));
     drawing.push_back("|" + title + string(widthBox - title.length() - 2, ' ') + "|");
     drawing.push_back(string(widthBox, '-'));
 
-    for (auto line : puce)
+    for (const auto& line : bullet)
     {
-        string white1(nbCharPuce - line.first.length(), ' ');
+        string white1(nbCharBullet - line.first.length(), ' ');
         string white2(nbCharVal - line.second.length(), ' ');
         drawing.push_back("|" + line.first + white1 + "|" + white2 + line.second + "|");
     }
-    for (size_t i = 0; i < nbPuce - puce.size(); i++)
+    for (size_t i = 0; i < nbBullet - bullet.size(); i++)
     {
-        drawing.push_back("|" + string(nbCharPuce, ' ') + "|" + string(nbCharVal, ' ') + "|");
+        drawing.push_back("|" + string(nbCharBullet, ' ') + "|" + string(nbCharVal, ' ') + "|");
     }
     drawing.push_back(string(widthBox, '_'));
 }

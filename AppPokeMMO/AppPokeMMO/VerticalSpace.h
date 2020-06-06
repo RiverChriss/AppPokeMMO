@@ -3,7 +3,7 @@
 
 class VerticalSpace : public DrawingObj
 {
-protected:
-	virtual void draw();
+public:
+	virtual void draw() override;
 };
 

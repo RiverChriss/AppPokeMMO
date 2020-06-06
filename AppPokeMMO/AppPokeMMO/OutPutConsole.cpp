@@ -2,47 +2,41 @@
 
 using namespace std;
 
-void OutPutConsole::addDrawingObj(int x, int y, DrawingObj* obj)
+void OutPutConsole::addDrawingObj(size_t x, size_t y, DrawingObj* obj)
 {
-	if (grille.size() == 0 || grille.size() - 1 < x)
+	if (grid.size() == 0 || grid.size() - 1 < x)
 	{
-		grille.resize(x + 1);
+		grid.resize(x + (size_t)1);
 	}
-	if (grille[x].size() == 0 || grille[x].size() - 1 < y)
+	if (grid[x].size() == 0 || grid[x].size() - 1 < y)
 	{
-		for (auto& line : grille)
+		for (auto& line : grid)
 		{
-			line.resize(y + 1);
+			if (line.size() < y + 1)
+			{
+				line.resize(y + (size_t)1);
+			}
 		}
 	}
-	grille[x][y] = obj;
+	grid[x][y] = obj;
 }
 
 void OutPutConsole::print() const
 {
-	for (const auto& line : grille)
+	const int nbTitle = 1;
+	for (const auto& lineGrid : grid)
 	{
-		size_t index = 0;
-	startLine:
-		size_t heightMax = 0;
-		for (const auto& element : line)
+		for (int noLigne = 0; noLigne < Box::nbBullet + nbTitle + Box::nbBordes; noLigne++)
 		{
-			if (element)
+			for (const auto& element : lineGrid)
 			{
-				element->draw();
-				if (element->getDrawing().size() > heightMax)
+				if (element)
 				{
-					heightMax = element->getDrawing().size();
+					element->draw();
+					cout << element->getDrawing()[noLigne];
 				}
-				cout << element->getDrawing()[index];
 			}
-
-		}
-		cout << endl;
-		index++;
-		if (index < heightMax)
-		{
-			goto startLine; // TODO: trouver une façon de retirer le goto
+			cout << endl;
 		}
 	}
 }

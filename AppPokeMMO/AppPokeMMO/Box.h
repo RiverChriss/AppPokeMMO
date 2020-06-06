@@ -4,9 +4,9 @@
 class Box : public DrawingObj
 {
 public:
-	static int nbCharPuce;
+	static int nbCharBullet;
 	static int nbCharVal;
-	static int nbPuce;
-
+	static int nbBullet;
+	static const int nbBordes;
 };
 

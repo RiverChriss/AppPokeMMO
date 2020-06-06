@@ -3,17 +3,18 @@
 #include "DrawingObj.h"
 #include <string>
 #include <iostream>
+#include "Box.h"
 
 using namespace std;
 
 class OutPutConsole
 {
 private:
-	vector<vector<DrawingObj*>> grille;
+	vector<vector<DrawingObj*>> grid;
 	vector<string> drawing;
 
 public:
-	void addDrawingObj(int x, int y, DrawingObj* obj);
+	void addDrawingObj(size_t x, size_t y, DrawingObj* obj);
 	void print() const;
 };
 
