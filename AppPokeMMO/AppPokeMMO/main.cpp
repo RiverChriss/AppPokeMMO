@@ -1,33 +1,37 @@
 #include <iostream>
-#include <string>
 #include "TextBox.h"
-#include "VideBox.h"
-#include "InterfaceConsole.h"
+#include "NullBox.h"
+#include "OutPutConsole.h"
+#include "VerticalSpace.h"
 
 using namespace std;
 
 int main()
 {
-	TextBox test1;
-	test1.setTitre("Pokemon");
-	test1.addPuce("Att", "(28-30)");
-	test1.addPuce("Defence", "(31)");
-	test1.addPuce("Spec Defence", "(25-31)");
-	test1.addPuce("Spec Att", "(20-28)");
-	test1.print();
+	TextBox pokemon1;
+	pokemon1.setTitle("Pikachu");
+	pokemon1.addBullet("Att", "(28-30)");
+	pokemon1.addBullet("Defence", "(31)");
+	pokemon1.addBullet("Spec Defence", "(25-31)");
+	pokemon1.addBullet("Spec Att", "(20-28)");
 
-
-	VideBox test2;
-	test2.print();
+	TextBox pokemon2(pokemon1);
+	pokemon2.setTitle("Charizard");
+	pokemon2.getBullet(0).second = "(31)";
+	pokemon2.getBullet(2).second = "(31)";
+	pokemon2.getBullet(3).second = "(31)";
 
 	cout << endl << endl;
 
-	InterfaceConsole testConsole;
-	testConsole.addDrawingObj(1, 0, &test1);
-	testConsole.addDrawingObj(0, 0, &test2);
-	testConsole.addDrawingObj(1, 1, &test2);
-	testConsole.addDrawingObj(0, 3, &test1);
-	testConsole.addDrawingObj(0, 2, &test2);
+	NullBox boxNull;
+
+	OutPutConsole testConsole;
+	testConsole.addDrawingObj(0, 0, &pokemon2);
+	testConsole.addDrawingObj(0, 3, &pokemon1);
+	testConsole.addDrawingObj(1, 0, &boxNull);
+	testConsole.addDrawingObj(1, 1, &pokemon1);
+	testConsole.addDrawingObj(0, 2, &boxNull);
+	testConsole.addDrawingObj(1, 4, &boxNull);
 	testConsole.print();
 
 	return 0;

@@ -1,49 +1,46 @@
 #include "TextBox.h"
 
-void TextBox::setTitre(const string& texte)
+using namespace std;
+
+void TextBox::setTitle(const string& text)
 {
-	titre = texte;
+	title = text;
 }
 
-void TextBox::addPuce(string textGauche, string textDroite)
+void TextBox::addBullet(const string& textLeft, const string& textRight)
 {
-    if (puce.size() >= nbPuce)
+    if (bullet.size() >= nbBullet)
     {
         return;
     }
-    if (textGauche.length() > nbCharPuce)
-    {
-        textGauche = textGauche.substr(0, nbCharPuce);
-    }
-    if (textDroite.length() > nbCharVal)
-    {
-        textDroite = textDroite.substr(0, nbCharVal);
-    }
-    puce.push_back(pair<string, string>(textGauche, textDroite));
+ 
+    bullet.push_back(pair<string, string>(textLeft.substr(0, nbCharBullet), textRight.substr(0, nbCharVal)));
 }
 
-pair<string, string>& TextBox::getPuce(int index)
+pair<string, string>& TextBox::getBullet(size_t index)
 {
-    return puce[index];
+    return bullet[index];
 }
 
 void TextBox::draw()
 {
-    int largeurBox = nbCharPuce + nbCharVal + 3;
+    drawing.clear();
 
-    dessin.push_back(string(largeurBox, '_'));
-    dessin.push_back("|" + titre + string(largeurBox - titre.length() - 2, ' ') + "|");
-    dessin.push_back(string(largeurBox, '-'));
+    int widthBox = nbCharBullet + nbCharVal + nbBordes;
 
-    for (auto ligne : puce)
+    drawing.push_back(string(widthBox, '_'));
+    drawing.push_back("|" + title + string(widthBox - title.length() - 2, ' ') + "|");
+    drawing.push_back(string(widthBox, '-'));
+
+    for (const auto& line : bullet)
     {
-        string white1(nbCharPuce - ligne.first.length(), ' ');
-        string white2(nbCharVal - ligne.second.length(), ' ');
-        dessin.push_back("|" + ligne.first + white1 + "|" + white2 + ligne.second + "|");
+        string white1(nbCharBullet - line.first.length(), ' ');
+        string white2(nbCharVal - line.second.length(), ' ');
+        drawing.push_back("|" + line.first + white1 + "|" + white2 + line.second + "|");
     }
-    for (size_t i = 0; i < nbPuce - puce.size(); i++)
+    for (size_t i = 0; i < nbBullet - bullet.size(); i++)
     {
-        dessin.push_back("|" + string(nbCharPuce, ' ') + "|" + string(nbCharVal, ' ') + "|");
+        drawing.push_back("|" + string(nbCharBullet, ' ') + "|" + string(nbCharVal, ' ') + "|");
     }
-    dessin.push_back(string(largeurBox, '_'));
+    drawing.push_back(string(widthBox, '_'));
 }
